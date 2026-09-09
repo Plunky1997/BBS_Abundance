@@ -552,4 +552,6 @@ sp_rich_first_dec |>
 write.csv(sp_rich_dat, here::here("sp_rich_dat.csv"), row.names = F)
 
 write.csv(hyp_final_df, here::here("hyp_final_df.csv"))
-### relevant Rdata is hyp_change_1
+
+save.image(file = here::here("/RData/03_pattern_classification.RData"))
+### 
