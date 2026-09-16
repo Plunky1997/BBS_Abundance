@@ -72,7 +72,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
 
 ### Results
 
-***** Note *** The following description contains the input data and the output data/results saved on the R workspace to be used in the Rcripts. The above RScripts in the code section were labelled with a number and the code should be run in that order. Also if you want to produce a certain Rscript, make sure to run the precedent script which produce the input data sets for the relevant Rscript.
+***** Note *** The following description contains the input data and the output data/results saved on the R workspace from the Rcripts. The above RScripts in the code section were labelled with a number and the code should be run in that order. Also if you want to produce a certain Rscript, make sure to run the precedent script which produce the input data sets for the relevant Rscript.
 
 
 ---
