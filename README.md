@@ -582,7 +582,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
   | fledging_age_d | The time it takes for the bird to be capable of flight (or for some species, leaving the nest) in days |
   | longevity_y | The lifespan of an individual in years |
   | Trend | Percentage change of the population per year of each species |
-  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents fast reproductive species |
+  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents slow reproductive species |
   | PC2 | The second principal component of the phylogenetic principal component analysis done for the life history data. This represents longer living species |
   
   - `07_phylogenetic_pca.RData` - This contains the R workspace of the phylogenetic principal component analysis. 
@@ -616,7 +616,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
   | fledging_age_d | The time it takes for the bird to be capable of flight (or for some species, leaving the nest) in days |
   | longevity_y | The lifespan of an individual in years |
   | Trend | Percentage change of the population per year of each species |
-  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents fast reproductive species |
+  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents slow reproductive species |
   | PC2 | The second principal component of the phylogenetic principal component analysis done for the life history data. This represents longer living species |
 
 - **Output data**
@@ -631,7 +631,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
   | Hand.wing.Index | Hand wing index of the species|
   | BodyMass.Value | Body mass of the species in grams |
   | Trend | Percentage change of the population per year of each species |
-  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents fast reproductive species |
+  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents slow reproductive species |
   | PC2 | The second principal component of the phylogenetic principal component analysis done for the life history data. This represents longer living species |
   | change | Whether there is a change of within-range abundance patterns |
   | abs_Trend | Absolute value Percentage change of the population per year of each species |
@@ -676,7 +676,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
   | Hand.wing.Index | Hand wing index of the species|
   | BodyMass.Value | Body mass of the species in grams |
   | Trend | Percentage change of the population per year of each species |
-  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents fast reproductive species |
+  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents slow reproductive species |
   | PC2 | The second principal component of the phylogenetic principal component analysis done for the life history data. This represents longer living species |
   | change | Whether there is a change of within-range abundance patterns |
   | abs_Trend | Absolute value Percentage change of the population per year of each species |
@@ -710,7 +710,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
   | primary_diet | The main type of diet used by a species |
   | Hand.wing.Index | Hand wing index of the species|
   | BodyMass.Value | Body mass of the species in grams |
-  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents fast reproductive species |
+  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents slow reproductive species |
   | PC2 | The second principal component of the phylogenetic principal component analysis done for the life history data. This represents longer living species |
   | abs_Trend | Absolute value Percentage change of the population per year of each species |
   | change_status | The status of abundant-center pattern change over the years |
@@ -730,7 +730,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
   | primary_diet | The main type of diet used by a species |
   | Hand.wing.Index | Hand wing index of the species|
   | BodyMass.Value | Body mass of the species in grams |
-  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents fast reproductive species |
+  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents slow reproductive species |
   | PC2 | The second principal component of the phylogenetic principal component analysis done for the life history data. This represents longer living species |
   | abs_Trend | Absolute value Percentage change of the population per year of each species |
   | change_status | The status of rare-edge pattern change over the years |
@@ -755,7 +755,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
   | primary_diet | The main type of diet used by a species |
   | Hand.wing.Index | Hand wing index of the species|
   | BodyMass.Value | Body mass of the species in grams |
-  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents fast reproductive species |
+  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents slow reproductive species |
   | PC2 | The second principal component of the phylogenetic principal component analysis done for the life history data. This represents longer living species |
   | abs_Trend | Absolute value Percentage change of the population per year of each species |
   | change_status | The status of rare-edge pattern change over the years |
@@ -792,7 +792,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
   | primary_diet | The main type of diet used by a species |
   | Hand.wing.Index | Hand wing index of the species|
   | BodyMass.Value | Body mass of the species in grams |
-  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents fast reproductive species |
+  | PC1 | The first principal component of the phylogenetic principal component analysis done for the life history data. This represents slow reproductive species |
   | PC2 | The second principal component of the phylogenetic principal component analysis done for the life history data. This represents longer living species |
   | abs_Trend | Absolute value Percentage change of the population per year of each species |
   | change_status | The status of abundant-center pattern change over the years |
