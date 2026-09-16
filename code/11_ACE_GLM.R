@@ -32,10 +32,10 @@ car::vif(GLM_cor)
 
 ## try the models
 
-GLM_full <- lme4::glmer(change ~ primary_habitat*primary_diet*Hand.wing.Index
-                        + edge_type + (Trend + I(Trend^2)) + pc1 + pc2 + (1|Family),
-                        data = func_an_ACE,
-                        family = binomial)
+#GLM_full <- lme4::glmer(change ~ primary_habitat*primary_diet*Hand.wing.Index
+#                        + edge_type + (Trend + I(Trend^2)) + pc1 + pc2 + (1|Family),
+#                        data = func_an_ACE,
+#                        family = binomial)
 
 ## too much for handling the interactions so we shall consider only the reproductive pc and others interactions
 ## which make sense to keep the full model befoe dredging
@@ -55,17 +55,17 @@ GLM_full <- lme4::glmer(change ~
 
 ## seems like the family variance is not explaining, try incorperating the pc1 in the family
 
-GLM_full_2 <- lme4::glmer(change ~
-                            primary_habitat + primary_diet + Hand.wing.Index + pc1 + pc2 + edge_type +
-                            (Trend + I(Trend^2)) +
-                            rich_dif +
-                            primary_habitat:pc1 +
-                            primary_diet:pc1 +
-                            Hand.wing.Index:pc1 +
-                            (Trend + I(Trend^2)):pc1 +
-                            edge_type:pc1 +
-                            (pc1|Family), 
-                          data = func_an_ACE,family = binomial)
+#GLM_full_2 <- lme4::glmer(change ~
+#                            primary_habitat + primary_diet + Hand.wing.Index + pc1 + pc2 + edge_type +
+#                            (Trend + I(Trend^2)) +
+#                            rich_dif +
+#                            primary_habitat:pc1 +
+#                            primary_diet:pc1 +
+#                            Hand.wing.Index:pc1 +
+#                            (Trend + I(Trend^2)):pc1 +
+#                            edge_type:pc1 +
+#                            (pc1|Family), 
+#                          data = func_an_ACE,family = binomial)
 
 ## still not much effect because singular boundary fit
 ##
@@ -83,7 +83,6 @@ GLM_full_3 <- glm(change ~
 
 
 bbmle::AICctab(GLM_full,
-               GLM_full_2,
                GLM_full_3)
 
 ## without the family as the random intercept seems to be doing fine for the full model. But, we shall keep the 

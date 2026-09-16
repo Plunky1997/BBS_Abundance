@@ -24,7 +24,7 @@ func_trait_df |>
 impute_df |> 
   select(where(is.numeric)) -> func_num
 
-mice:
+#mice:
   
   m <- 1000
 

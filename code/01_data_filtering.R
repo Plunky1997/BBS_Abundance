@@ -56,7 +56,7 @@ library(readxl)
 
 species_list <- bbs_data$species
 
-selected_bird_list <- readxl::read_xlsx(here::here("all_birds_merged.xlsx"))
+selected_bird_list <- readxl::read_xlsx(here::here("Data/all_birds_merged.xlsx"))
 
 species_list |> 
   mutate(Scientific_name = paste(genus, species)) |> 
@@ -249,9 +249,9 @@ setdiff(bbs_core_species_3$Scientific_name, ebirdst_runs$scientific_name)
 ##### Using ebird data to create the range map for each species to see the 
 # overlap percentage of the range with the BBS data routes
 
-#set_ebirdst_access_key("6qck2tr7e3me")
+#set_ebirdst_access_key("6qck2tr7e3me", overwrite = T)
 
-
+set_ebirdst_access_key("a72867a5-290d-4c34-9a32-949c7152c190", overwrite = T)
 
 ne_countries(
   scale = "medium",
@@ -455,9 +455,5 @@ bbs_counts_coord |>
   filter(year %in% c(2013:2023)) -> abundance_last_dec
 
 write.csv(abundance_last_dec, here::here("abundance_last_dec.csv"))
-
-
-
-############################# Next script FInding range edges and centres ###################################
 
 

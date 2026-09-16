@@ -1,6 +1,6 @@
 ### Figures ####
 
-load(here::here("Rdata/03_pattern_classification.RData"))
+load(here::here("03_pattern_classification.RData"))
 
 library(tidyverse)
 ##Meleagris gallopavo

@@ -40,7 +40,7 @@ hyp_DF |>
 
 ## connecting the speciesList to get proper names befire going for the functional trait extraction
 
-species_list <- read.csv(here::here("SpeciesList.csv"))
+species_list <- read.csv(here::here("Data/SpeciesList.csv"))
 
 species_list |> 
   rename("aou" = "AOU") -> species_list

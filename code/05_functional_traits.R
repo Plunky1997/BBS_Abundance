@@ -1,10 +1,4 @@
 ######### Functional data DF structure ###############
-## I will be using the reproduction life histories
-## HWI index
-## Incubation period
-## high fecundatity rates
-## Habitat dominance
-## feeding habits
 
 
 ###### Get the trait data from the t
@@ -461,7 +455,7 @@ trans_df_amniota_select_2 |>
 ## let's try the birdbase before dealing with the missing values
 
 
-Bird_base_2 <- readxl::read_xlsx(here::here("Bird_base_2.xlsx"), sheet = "Data")
+Bird_base_2 <- readxl::read_xlsx(here::here("Data", "Bird_base_2.xlsx"), sheet = "Data")
 
 
 Bird_base_2 |> 

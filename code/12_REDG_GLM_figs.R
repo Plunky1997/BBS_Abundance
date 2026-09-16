@@ -3,7 +3,7 @@
 load(here::here("REDG_selected_model_data_3.RData"))
 
 
-summary(model_1)
+summary(model_REDG)
 
 
 ## create for each variable
@@ -21,7 +21,7 @@ new_data_Trend <- data.frame(
 )
 
 
-predict_Trend <- predict(model_1, new_data_Trend, se.fit = T,
+predict_Trend <- predict(model_REDG, new_data_Trend, se.fit = T,
                          type = "link")
 
 new_data_Trend |> 
@@ -75,7 +75,7 @@ new_data_PC1 <- data.frame(
 )
 
 
-predict_pc1 <- predict(model_1, new_data_PC1, se.fit = T,
+predict_pc1 <- predict(model_REDG, new_data_PC1, se.fit = T,
                        type = "link")
 
 new_data_PC1 |> 
@@ -134,7 +134,7 @@ new_data_hwi <- data.frame(
 )
 
 
-predict_Hand.wing.Index <- predict(model_1, new_data_hwi, se.fit = T,
+predict_Hand.wing.Index <- predict(model_REDG, new_data_hwi, se.fit = T,
                                    type = "link")
 
 new_data_hwi |> 
@@ -186,7 +186,7 @@ new_df <- data.frame(edge_type = factor(c("coastline", "inland")),
                      Trend = mean(func_an_REDG$Trend))
 
 
-predict_edge <- predict(model_1, newdata = new_df, type = "link", se.fit = T)
+predict_edge <- predict(model_REDG, newdata = new_df, type = "link", se.fit = T)
 
 
 new_df$fitted <- plogis(predict_edge$fit)

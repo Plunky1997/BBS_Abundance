@@ -14,7 +14,7 @@ func_trait_complete <- read.csv(here::here("func_trait_complete.csv"))
 
 ## read the trends 
 
-trends <-read.csv(here::here("Trends_df.csv"))
+trends <-read.csv(here::here("Data", "Trends_df.csv"))
 
 
 func_trait_complete |> 
@@ -341,9 +341,9 @@ ppca_conduct <- function(tree, data){
 
 #phyl_tree_test <- phyl_tree[1:2]
 
-all_ppca <- purrr::imap(phyl_tree_test, ~{
-  message("Running tree", .y)
-  ppca_conduct(tree = .x, data = rep_df_4)})
+#all_ppca <- purrr::imap(phyl_tree_test, ~{
+#  message("Running tree", .y)
+#  ppca_conduct(tree = .x, data = rep_df_4)})
 
 
 ##for the whole

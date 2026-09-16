@@ -104,7 +104,7 @@ grid_REDG$acc <- NA
 
 for (i in 1:nrow(grid_REDG)) {
   accs <- c()
-  for (f in folds) {
+  for (f in folds_REDG) {
     train <- REDG_DC_DF[-f, ]; test <- REDG_DC_DF[f, ]
     w <- cw_REDG[-f]
     
@@ -123,7 +123,8 @@ for (i in 1:nrow(grid_REDG)) {
   grid_REDG$acc[i] <- mean(accs)
 }
 
-grid_REDG[order(-grid$acc), ] 
+
+grid_REDG[order(-grid_REDG$acc), ] 
 
 
 ## what we would do here, to increase the interpretability of the data, we shall stick with the

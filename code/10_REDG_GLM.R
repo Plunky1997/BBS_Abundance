@@ -54,10 +54,10 @@ car::vif(GLM_cor_2)
 
 ## try the models
 
-GLM_full <- lme4::glmer(change ~ primary_habitat*primary_diet*Hand.wing.Index 
-                        + edge_type + (Trend + I(Trend^2)) + pc1 + pc2 + (1|Family),
-                        data = func_an_REDG,
-                        family = binomial)
+#GLM_full <- lme4::glmer(change ~ primary_habitat*primary_diet*Hand.wing.Index 
+#                        + edge_type + (Trend + I(Trend^2)) + pc1 + pc2 + (1|Family),
+#                        data = func_an_REDG,
+#                        family = binomial)
 
 ## too much for handling the interactions so we shall consider only the reproductive pc and others interactions
 ## which make sense to keep the full model befoe dredging
