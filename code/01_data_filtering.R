@@ -1,6 +1,29 @@
 ############################ Data structuring for the analysis ############################################
 
-####getting the BBS data to the R which is downloaded from the BBS site from 1966 to 2023
+#### getting the BBS data to the R which is downloaded from the BBS site from 1966 to 2023
+
+if(!requireNamespace("bbsBayes2", quietly = TRUE)){
+  devtools::install_github("BrandonEdwards/bbsBayes2")
+}
+
+packages <- c(
+  "tidyverse",
+  "bbsBayes2",
+  "ebirdst",
+  "sf",
+  "terra",
+  "leaflet",
+  "rnaturalearth",
+  "rnaturalearthdata",
+  "concaveman",
+  "lwgeom",
+  "units")
+
+installed <- packages %in% rownames(installed.packages())
+
+if (any(!installed)) {
+  install.packages(packages[!installed])
+}
 
 ## read the csvs into a list of data frames
 #################### packages ##################
@@ -15,14 +38,11 @@ library(rnaturalearthdata)
 library(concaveman)
 library(lwgeom)
 library(units)
+library(readxl)
 
-#devtools::install_github("BrandonEdwards/bbsBayes2")
-
-#bbsBayes2::fetch_bbs_data(level = "state")
-
+bbsBayes2::fetch_bbs_data(level = "state")
 
 bbs_data <- load_bbs_data()
-
 
 ## extract the full data set
 
@@ -33,8 +53,6 @@ bbs_counts <- bbs_data$birds
 bbs_routes <- bbs_data$routes
 
 ## adding the cprdimnates to the count data
-
-
 bbs_counts |> 
   left_join(bbs_routes |> 
               distinct(country_num, state_num, route, .keep_all = T) |> 
@@ -48,11 +66,8 @@ bbs_counts |>
 bbs_counts_coord |> 
   filter(rpid == 101 & run_type == 1) -> bbs_counts_coord
 
-
-
 ### select the core species from all the data
 ## get the data set created for the core species of the Breeding bird survey
-library(readxl)
 
 species_list <- bbs_data$species
 
@@ -63,7 +78,6 @@ species_list |>
   distinct(aou, Scientific_name) |> 
   print(n = 763)
 
-
 selected_bird_list |> 
   rename(Common_name = `Common name`,
          Scientific_name = `Scientific name`) |> 
@@ -71,8 +85,6 @@ selected_bird_list |>
                mutate(Scientific_name = paste(genus, species)) |> 
                rename(Common_name = english) |>  distinct(aou, Scientific_name), 
              by = "Scientific_name") -> join_scientific_birds
-
-
 
 selected_bird_list |> 
   rename(Common_name = `Common name`,
@@ -87,8 +99,6 @@ selected_bird_list |>
 
 
 selected_bird_list_2 <- bind_rows(join_common_birds, join_scientific_birds)
-
-
 
 selected_bird_list |> 
   rename(Common_name = `Common name`,
@@ -111,17 +121,14 @@ selected_bird_list |>
 selected_bird_list_3 |> 
   filter(Core == "Core") -> bbs_core_species
 
-
 bbs_core_species |> 
   filter(Scientific_name == "Astur atricapillus")
 
 bbs_core_species |> 
   filter(Common_name == "American Crow")
 
-
 ### We will get rid of the nothern gashawk and replace the northstern crow with the american crow
 ## 
-
 
 ## check for the northwestern crow for the species list
 
@@ -135,12 +142,7 @@ species_list |>
 ## we cannot find this in the orginal data set, so we assum that it is being updated already,
 ## therefore no need to worry just stick with the updated data set
 
-
-
-
-
 ######## now select the codes in the full data set to get the selected species only
-
 
 bbs_core_species_2 <- na.omit(bbs_core_species)
 
@@ -148,15 +150,11 @@ bbs_counts_coord |>
   filter(country_num == 840) |> 
   filter(aou %in% as.vector(bbs_core_species_2$aou)) -> bbs_core_counts
 
-
 ## The north american map
 
 na_map <- ne_countries(continent = "north america", returnclass = "sf", scale = "medium")
 
-
-
 ##### Getting the range of the selected birds
-
 
 ### let's try for one species in the data
 
@@ -208,12 +206,10 @@ bbs_core_species_2 |>
     TRUE ~ Scientific_name
   )) -> bbs_core_species_3
 
-
 bbs_core_species_3 |> 
   filter(Scientific_name %in% setdiff(bbs_core_species_3$Scientific_name, ebirdst_runs$scientific_name))
 
 setdiff(bbs_core_species_3$Scientific_name, ebirdst_runs$scientific_name)
-
 
 ebirdst_runs |> 
   filter(common_name %in% c("Hairy Woodpecker",
@@ -222,12 +218,9 @@ ebirdst_runs |>
                             "Northern/Southern House Wren")) |> 
   select(scientific_name)
 
-
-
 ebirdst_runs |> 
   filter(str_detect(common_name, "Wren")) |> 
   print(n = 53)
-
 
 ## identified the scientific names and re assign those to the data set
 
@@ -242,7 +235,6 @@ bbs_core_species_3 |>
 
 
 setdiff(bbs_core_species_3$Scientific_name, ebirdst_runs$scientific_name)
-
 
 ### now go for the range maps for each species in the bbs data
 
@@ -262,7 +254,6 @@ ne_countries(
   st_transform(crs = 4326) |> 
   st_union() -> americas
 
-
 ### BBS polygon
 # Remove routes outside of spatial boundary 
 # (Mexico, Alaska, Northwest Territories, Newfoundland and Labrador, Nunavut, 
@@ -276,29 +267,21 @@ bbs_routes |>
 bbs_routes_select |> 
   st_as_sf(coords = c("longitude", "latitude"), crs = 4326, remove = F) -> bbs_sf
 
-
 write.csv(bbs_routes_select, here::here("bbs_routes_select.csv"))
-
 
 ## equal area fot the global
 
 bbs_ea <- st_transform(bbs_sf, crs = 8857)
 
-
-
 ## concave hull around all routes selected
-
 concaveman(bbs_ea, concavity = 2, length_threshold = 0) |> 
   st_make_valid() -> routes_boundary
 
-
 ## buffer to the sampling points
-
 routes_boundary |> 
   st_buffer(5000) |> 
   st_union() |> 
   st_make_valid() -> routes_boundary
-
 
 plot(routes_boundary)
 
@@ -318,7 +301,6 @@ ebirdst_download_status(species,
                         download_ranges = T,
                         download_abundance = F)
 
-
 load_ranges(species = species,
             resolution = "27km") |> 
   dplyr::filter(season == "breeding") -> range 
@@ -333,7 +315,6 @@ range |>
   st_transform(8857) |> 
   st_make_valid() -> range_equal_area
 
-
 range_area <- sum(st_area(range_equal_area))
 
 plot(range)
@@ -342,9 +323,7 @@ st_intersection(range_equal_area, routes_boundary) |>
   st_area() |> 
   sum() -> overap_area
 
-
 range_perc <- as.numeric(overap_area/range_area)*100
-
 
 ### checking whether it is working
 
@@ -353,9 +332,7 @@ ggplot()+
   geom_sf(data = st_transform(routes_boundary, crs = 4326))+
   geom_sf(data = st_transform(range, crs = 4326), fill = "red")
 
-
 ## this is going well with the plot as well so now we can loop the obove for subset of species
-
 set.seed(345)
 
 bbs_core_species_3 |> 
@@ -405,7 +382,6 @@ for(sp in species_all){
   
 }
 
-
 ## there were NaNs for some of the species in the first loop and it was due to the residency status of the
 ## species. THerefore for those species we used the whole range map
 ## the looping
@@ -419,8 +395,6 @@ for(sp in species_all){
 
 bbs_core_species_3 |> 
   filter(Scientific_name %in% species_all) -> prop_species_all
-
-
 
 prop_species_all |> 
   inner_join((perc_data |> 
@@ -444,9 +418,6 @@ bbs_counts_coord |>
 
 write.csv(abundance_first_dec, here::here("abundance_first_dec.csv"))
 
-
-
-
 bbs_counts_coord |> 
   filter(aou %in% as.double(prop_species_all$aou)) |> 
   filter(rpid == 101 & run_type == 1) |> 
@@ -455,5 +426,3 @@ bbs_counts_coord |>
   filter(year %in% c(2013:2023)) -> abundance_last_dec
 
 write.csv(abundance_last_dec, here::here("abundance_last_dec.csv"))
-
-
