@@ -1,6 +1,6 @@
-## BBS_Abundance
-Abundance Distribution pattern changes over time
+## Abundant-center patterns change over time
 
+### Vimukthi Gunasekera, Bailey P. McLaughlin, Stephanie N. Miller, [Neil A. Gilbert](https://www.gilbertecology.com/)
 
 ### Data/code DOI:
 __________________________________________________________________________________________________________________________________________
