@@ -57,7 +57,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
 
    * [Bird_base_2.xlsx](./Data/Bird_base_2.xlsx) We use this data set to get the synonyms of the species to use in joining different functional data sets together. This data set was downloaded from [Şekercioğlu et al. 2025](https://www.nature.com/articles/s41597-025-05615-3) and see that for the column identifiers. We didn't include the column identifiers because it has many columns and is easily can be found in the paper. 
   
-   *** NOTE ** AllBirdsHackett1.tre is not included in this repository due to file size limitations. We retrieved this phylogenetic tree data from the [BirdTree.org](https://birdtree.org/) -> Downloads -> Full trees (9993 species), Hackett backbone ->      HackettStage2_0001_1000. A zip file was downloaded. Then clicked through each file until it reached the combinedTrees and the AllBirdsHackett1.tre can be found within that.
+   **NOTE**: AllBirdsHackett1.tre is not included in this repository due to file size limitations. We retrieved this phylogenetic tree data from the [BirdTree.org](https://birdtree.org/) -> Downloads -> Full trees (9993 species), Hackett backbone -> HackettStage2_0001_1000. A zip file was downloaded. Then clicked through each file until it reached the combinedTrees and the AllBirdsHackett1.tre can be found within that.
 
 ### Figures
 
@@ -70,13 +70,10 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
   * [Figure_4.png](./Figures/Figure_4.png) Figure 4
   * [Figure_4.ai](./Figures/Figure_4.ai) Figure 4 (Adobe illustrator format)
 
-### Results
-
-***** Note *** The following description contains the input data and the output data/results saved on the R workspace from the Rcripts. The above RScripts in the code section were labelled with a number and the code should be run in that order. Also if you want to produce a certain Rscript, make sure to run the precedent script which produce the input data sets for the relevant Rscript.
-
-
 ---
 ## Descriptions of inputs and outputs for each script
+
+**Note**: The following description contains the input data and the output data/results saved on the R workspace from the Rcripts. The above RScripts in the code section were labelled with a number and the code should be run in that order. Also if you want to produce a certain Rscript, make sure to run the precedent script which produce the input data sets for the relevant Rscript.
 
 * [01_data_filtering.R](./code/01_data_filtering.R)
 
