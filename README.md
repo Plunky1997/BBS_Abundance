@@ -18,7 +18,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
   * [04_specieslist_add.R](./code/04_specieslist_add.R). Quick script to input the species list with proper scientific names to extract functional trait through different databases
   * [05_functional_traits.R](./code/05_functional_traits.R). Extraction of functional traits using different databases
   * [06_trait_imputation.R](./code/06_trait_imputation.R). Imputation of functional traits extracted through different databases.
-  * [07_phylogenetic_pca.R](./code/07_phylogenetic_pca.R). Conducting phylogenetic principal component analysis and adding the population trend data set into the main data set.
+  * [07_phylogenetic_pca.R](./code/07_phylogenetic_pca.R). Conducting phylogenetic principal component analysis and adding the population trend data set into the main data set. **NOTE** You will need to download the Hackett tree for this script to run; this file is too big to include in the repository. Download the `HackettStage2_0001_1000.zip` file from [BirdTree](https://data.vertlife.org/?basetree=birdtree&start_folder=Stage2/). 
   * [08_structuring.R](./code/08_structuring.R). Re-structuring the data set and adding additional functional traits to the data
   * [09_ACE_REDG_partitioning.R](./code/09_ACE_REDG_partitioning.R). Re-defining the abundant-center and rare-edge patterns, carrying out summary statistics on within-range abundance pattern, creating bar graph for change status
   * [10_REDG_GLM.R](./code/10_REDG_GLM.R). Fitting GLMs to see the association between the functional traits and the rare-edge pattern change through years
