@@ -11,8 +11,8 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
  $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$ <img src="./Figures/Figure_1.png" width="600" />
 ## Repository Directory
 
-### code 
-  * [01_data_filtering.R](./code/01_data_filtering.R). This script download Breeding bird survey data and eBird data, standardize species taxonomy, estimate range coverage and get the abundance data set for 1980–1990 and 2013–2023.
+### code (see section further below for details regarding inputs and outputs)
+  * [01_data_filtering.R](./code/01_data_filtering.R). This script download Breeding bird survey data and eBird data, standardize species taxonomy, estimate range coverage and get the abundance data set for 1980–1990 and 2013–2023. **NOTE**: You will need an `ebirdst` access key and fill it in the script for the script to run fully. You must create a free Cornell Lab Account and request a key at [this link](https://ebird.org/st/request?continue)
   * [02_data_filtering.R](./code/02_data_filtering.R). Quick script to filter species to remove waterbirds, kingfishers, owls, nightjars and dipper and filter species based on the range proportion
   * [03_pattern_classification.R](./code/03_pattern_classification.R). Script to classify within-range abundance pattern for each species and create the major edge type variable
   * [04_specieslist_add.R](./code/04_specieslist_add.R). Quick script to input the species list with proper scientific names to extract functional trait through different databases
@@ -76,6 +76,7 @@ The abundant-center hypothesis is a foundational idea in ecology, but previous w
 
 
 ---
+## Descriptions of inputs and outputs for each script
 
 * [01_data_filtering.R](./code/01_data_filtering.R)
 
