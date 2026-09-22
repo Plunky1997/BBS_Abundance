@@ -138,7 +138,7 @@ REDG_ctree_opt <- ctree(
   control = ctree_control(
     alpha        = 0.05,   
     mincriterion = 0.95,   
-    minsplit     = 30,
+    minsplit     = 10,
     minbucket    = 5,
     maxdepth     = 3       
   )
@@ -166,7 +166,7 @@ REDG_leaf_percentages <- REDG_leaf_data |>
   arrange(leaf_node, desc(percentage))
 
 
-print(REDG_leaf_percentages, n= 23)
+write.csv(as.data.frame(print(REDG_leaf_percentages, n= 23)), here::here("REDG_con_inf_perc_df.csv"))
 
 
 
@@ -186,11 +186,14 @@ for(name in leaf_nodes_REDG){
     filter(leaf_node == name) |> 
     ggplot(aes(x = "",y = percentage, fill = change_status))+
     geom_col()+
+    coord_flip()+
     scale_fill_manual(values = colors_REDG)+
     theme(panel.background = element_blank(),
           axis.line = element_line(colour = "black"),
-          axis.text.y = element_text(size = 34),
+          axis.text.x = element_text(size = 34),
           axis.title = element_text(size = 35),
+          axis.title.y = element_blank(),
+          axis.line.y = element_blank(),
           legend.position = "none")
 }
 
@@ -204,8 +207,8 @@ purrr::imap(list_leaf_REDG, ~ ggsave(here::here(paste0("Figures/Leaf_nodes/REDG/
                                      plot = .x,
                                      device = cairo_pdf,
                                      units = "in",
-                                     width = 7,
-                                     height = 8))
+                                     width = 10,
+                                     height = 7))
 
 
 
@@ -381,7 +384,7 @@ ACE_leaf_percentages <- ACE_leaf_data |>
   ) |>
   arrange(leaf_node, desc(percentage))
 
-print(ACE_leaf_percentages, n = 23)
+write.csv(as.data.frame(print(ACE_leaf_percentages, n = 23)), here::here("ACE_cond_inf_perc_df.csv"))
 
 
 
@@ -463,3 +466,5 @@ purrr::imap(list_leaf_ACE, ~ ggsave(here::here(paste0("Figures/Leaf_nodes/ACE/",
                                     units = "in",
                                     width = 10,
                                     height = 7))
+
+save.image(file = here::here("14_conditional_inference_tree.RData"))

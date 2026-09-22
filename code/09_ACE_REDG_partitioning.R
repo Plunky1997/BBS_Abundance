@@ -560,6 +560,54 @@ ggsave(here::here("Figures/hyp_change_status.pdf"),
        height = 12)
 
 
+
+
+
+
+desc_REDG |> 
+  group_by(change_status) |> 
+  summarise(
+    count = n()
+  ) |> 
+  mutate(
+    perc = count/sum(count)*100
+  ) |> 
+  ggplot(aes(x = reorder(change_status,  -perc), y = perc, fill = change_status))+
+  geom_col()+
+  geom_text(
+    aes(label = paste0(round(perc, 1), "%")),
+    hjust = 1.1,          
+    color = "white",
+    size = 5,
+    fontface = "bold"
+  )+
+  coord_flip()+
+  ylab("changed percentage (%)")+
+  xlab("pattern change")+
+  theme(
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black"),
+    axis.title = element_text(size = 21),
+    axis.text = element_text(size = 19),
+    legend.position = "none"
+  )+
+  scale_fill_manual(values = c("REDG_REDG" = "#410000",
+                               "REDG_NRG" = "#7a3700",
+                               "NRG_NRG" = "#ba6d00",
+                               "NRG_REDG" = "#ffa500"))
+
+
+ggsave(here::here("Figures/hyp_change_status_REDG.pdf"),
+       dpi = 600,
+       device = cairo_pdf,
+       units = "in",
+       width = 8,
+       height = 12)
+
+
+
+
+
 #pie chart
 
 

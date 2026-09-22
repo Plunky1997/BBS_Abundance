@@ -6,6 +6,8 @@ load(here::here("ACE_selected_model_data_3.RData"))
 
 summary(model_ACE)
 
+write.csv(as.data.frame(summary(model_ACE)$coefficients), here::here("ACE_GLM_coe_results.csv"))
+
 
 ## edge type is a categorical variable.. so need to get the plot accordingly
 unique(func_an_ACE$edge_type)

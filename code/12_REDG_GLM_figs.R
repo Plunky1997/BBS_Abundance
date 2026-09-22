@@ -5,6 +5,7 @@ load(here::here("REDG_selected_model_data_3.RData"))
 
 summary(model_REDG)
 
+write.csv(as.data.frame(summary(model_REDG)$coefficients), here::here("REDG_GLM_coe_results.csv"))
 
 ## create for each variable
 
