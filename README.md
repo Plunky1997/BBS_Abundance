@@ -3,6 +3,7 @@
 ### Vimukthi Gunasekera, Bailey P. McLaughlin, Stephanie N. Miller, [Neil A. Gilbert](https://www.gilbertecology.com/)
 
 ### Data/code DOI: [![DOI](https://zenodo.org/badge/1173703201.svg)](https://doi.org/10.5281/zenodo.22924897)
+###[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22924897-blue.svg)](https://doi.org/10.5281/zenodo.22924897)
 __________________________________________________________________________________________________________________________________________
 
 ## Abstract
